@@ -79,11 +79,8 @@ if __name__ == "__main__":
 	preprocessed_input = a(args.input_data)
 
 	#create data, funct B
-	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
+	index_vowels, one_vector = b(preprocessed_input[0], models.vocab)
 
-	#load model and set evaluation mode for the model
-	model = torch.load(args.pickle)
-	model.eval()
 
 	#test model / predict
 	predicted_vowels = predict(model, one_vector)
