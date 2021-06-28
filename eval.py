@@ -29,10 +29,10 @@ def b(u, p):
 	gt = []
 	gr = []
 	for v in range(len(u) - 4):
-		if u[v+2] not in vowels:
+		if u[v+2] not in vocab:
 			continue
 		
-		h2 = vowels.index(u[v+2])
+		h2 = vocab.index(u[v+2])
 		gt.append(h2)
 		r = np.concatenate([g(x, p) for x in [u[v], u[v+1], u[v+3], u[v+4]]])
 		gr.append(r)
