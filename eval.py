@@ -72,6 +72,8 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
+	model = torch.load(args.pickle)
+	model.eval()
 
 	#preproccessing funct A
 	preprocessed_input = a(args.input_data)
