@@ -25,16 +25,16 @@ def g(x, p):
 	z[p.index(x)] = 1
 	return z
 
-def b(u, p):
+def b(input_data, vocab):
 	gt = []
 	gr = []
-	for v in range(len(u) - 4):
-		if u[v+2] not in vocab:
+	for v in range(len(input_dat) - 4):
+		if input_data[v+2] not in vocab:
 			continue
 		
-		h2 = vocab.index(u[v+2])
+		h2 = vocab.index(input_data[v+2])
 		gt.append(h2)
-		r = np.concatenate([g(x, p) for x in [u[v], u[v+1], u[v+3], u[v+4]]])
+		r = np.concatenate([g(x, vocab) for x in [input_data[v], input_data[v+1], input_data[v+3], input_data[v+4]]])
 		gr.append(r)
 
 	return np.array(gr), np.array(gt)
@@ -51,12 +51,20 @@ def predict(model, input_vector):
 
 
 
-def evaluate_accuracy():
-	pass
+def evaluate_accuracy(true_vector, predicted_vector):
+	true_positives = sum(predicted_vector == true_vector)
+	total = len(predicted_vector)
+	accuracy = true_positives / total
+	print('Current Model Accuracy: ', accuracy*100, '%')
 
 
-def overwrite(input_file, output_file):
-	pass
+def overwrite(input_file, output_file, predicted_vowels):
+
+
+	with open(input_file, "r") as f:
+        i_file = f.read()
+
+    pass
 
 
 
@@ -78,14 +86,16 @@ if __name__ == "__main__":
 	#preproccessing funct A
 	preprocessed_input = a(args.input_data)
 
-	#create data, funct B
-	index_vowels, one_vector = b(preprocessed_input[0], models.vocab)
 
+	#create data, funct B
+	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
 
 	#test model / predict
-	predicted_vowels = predict(model, one_vector)
+	predict = predict(model, index_vowels)
 
 	#evaluate / print accuracy  
+	accu = evaluate_accuracy(one_vector, predict)
 
 	#use model to write!
+
 
