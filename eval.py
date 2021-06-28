@@ -58,13 +58,13 @@ def evaluate_accuracy(true_vector, predicted_vector):
 	print('Current Model Accuracy: ', accuracy*100, '%')
 
 
-def overwrite(input_file, output_file, predicted_vowels):
+# def overwrite(input_file, output_file, predicted_vowels):
 
 
-	with open(input_file, "r") as f:
-        i_file = f.read()
+# 	with open(input_file, "r") as f:
+#         i_file = f.read()
 
-    pass
+#     pass
 
 
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("input_data", type=str)
 	parser.add_argument("pickle", type=str)
-	parser.add_argument("overwriting_file", type=str)   
+	# parser.add_argument("overwriting_file", type=str)   
 
 	args = parser.parse_args()
 
@@ -85,7 +85,6 @@ if __name__ == "__main__":
 
 	#preproccessing funct A
 	preprocessed_input = a(args.input_data)
-
 
 	#create data, funct B
 	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
