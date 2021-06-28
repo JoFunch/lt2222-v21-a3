@@ -23,8 +23,7 @@ def a(f):
 
 def g(x, p):
     z = np.zeros(len(p))
-    if x in p:
-        z[p.index(x)] = 1
+    z[p.index(x)] = 1
     return z
 
 def b(u, p):

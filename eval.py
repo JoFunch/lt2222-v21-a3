@@ -22,7 +22,8 @@ def a(f):
 
 def g(x, p):
 	z = np.zeros(len(p))
-	z[p.index(x)] = 1
+	if x in p:
+		z[p.index(x)] = 1
 	return z
 
 def b(input_data, vocab):
