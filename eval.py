@@ -28,7 +28,7 @@ def g(x, p):
 def b(input_data, vocab):
 	gt = []
 	gr = []
-	for v in range(len(input_dat) - 4):
+	for v in range(len(input_data) - 4):
 		if input_data[v+2] not in vocab:
 			continue
 		
