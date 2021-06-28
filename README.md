@@ -41,7 +41,7 @@ Args:
 ## Part 2
 
 
-
+ python3 train.py /home/xsayas@GU.GU.SE/scratch/lt2222-v21-resources/svtrain.lower.txt
 
 ## Part 3
 
