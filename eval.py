@@ -7,6 +7,8 @@ import numpy as np
 import pandas as pd
 import models
 import glob
+from sklearn.metrics import accuracy_score
+
 
 
 def a(f):
@@ -41,7 +43,9 @@ def b(u, p):
 
 def predict(model, input_vector):
 	pred = model(torch.Tensor(input_vector)).detach().numpy()
-	pred_vowels = np.argmin(np.abs(pred), axis=1)
+    print(pred)
+	pred_vowels = np.argmax(np.abs(pred), axis=1)
+    print(pred_vowels)
 	return pred_vowels
 
 
@@ -81,14 +85,7 @@ if __name__ == "__main__":
     #test model / predict
     predicted_vowels = predict(model, one_vector)
 
-    #evaluate / print accuracy
+    #evaluate / print accuracy  
 
     #use model to write!
 
-
-
-
-
-
-
-print(evaluate_model('models/*'))
