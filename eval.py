@@ -45,7 +45,7 @@ def predict(model, input_vector):
 
 	pred = model(torch.Tensor(input_vector)).detach().numpy()
 	print(pred)
-	pred_vowels = np.argmax(np.abs(pred), axis=1)
+	pred_vowels = np.max(np.abs(pred), axis=1)
 	print(pred_vowels)
 	return pred_vowels
 
