@@ -53,6 +53,8 @@ def predict(model, input_vector):
 
 
 def evaluate_accuracy(true_vector, predicted_vector):
+	print(true_vector[:50])
+	print(predicted_vector[:50])
 	true_positives = sum(predicted_vector == true_vector)
 	total = len(predicted_vector)
 	accuracy = true_positives / total
