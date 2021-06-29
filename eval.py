@@ -9,7 +9,7 @@ import models
 import glob
 from sklearn.metrics import accuracy_score
 
-
+vowels = sorted(['y', 'é', 'ö', 'a', 'i', 'å', 'u', 'ä', 'e', 'o'])
 
 def a(f):
 	mm = []
@@ -45,9 +45,9 @@ def b(input_data, vocab):
 def predict(model, input_vector):
 
 	pred = model(torch.Tensor(input_vector)).detach().numpy()
-	print(pred)
+	# print(pred)
 	pred_vowels = np.argmax(np.abs(pred), axis=1)
-	print(pred_vowels)
+	# print(pred_vowels)
 	return pred_vowels
 
 
@@ -59,25 +59,27 @@ def evaluate_accuracy(true_vector, predicted_vector):
 	print('Current Model Accuracy: ', accuracy*100, '%')
 
 
-# def overwrite(input_file, output_file, predicted_vowels):
+def overwrite(processed_files, write_file, pred_vowels):
 
+	lst = []
 
-# 	with open(input_file, "r") as f:
-#         i_file = f.read()
+    idx  = 0
+    for t in processed_files:
+    	if t in vowels:
+    		lst.append(vowels[pred_vowels[idx]])
+    		idx += 1
+    	else:
+    		lst.append(t)
+    		idx += 1
 
-#     pass
-
-
-
-
-
+    return lst
 
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("input_data", type=str)
 	parser.add_argument("pickle", type=str)
-	# parser.add_argument("overwriting_file", type=str)   
+	parser.add_argument("overwriting_file", type=str)   
 
 	args = parser.parse_args()
 
@@ -91,11 +93,15 @@ if __name__ == "__main__":
 	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
 
 	#test model / predict
-	predict = predict(model, index_vowels)
+	pred = predict(model, index_vowels)
 
 	#evaluate / print accuracy  
-	accu = evaluate_accuracy(one_vector, predict)
+	accu = evaluate_accuracy(one_vector, pred)
 
 	#use model to write!
+	with open(args.overwriting_file, 'w') as f:
+        f.write(''.join(overwrite(index_vowels, pred))) 
+
+
 
 
