@@ -16,8 +16,8 @@ class VowelModel(nn.Module):
 
         self.vocab = vocab
 
+        self.loss = 0
 
-        self.perplexity = 1
 
     def forward(self, x):
         x = self.lin1(x)
@@ -53,6 +53,8 @@ def train(X, y, vocab, hiddensize, epochs=100):
 
     shuffler = __shuffler__(X, y)
 
+    total_loss = 0
+
     for epoch in range(epochs):
         Xt, yt = next(shuffler)
         
@@ -60,12 +62,13 @@ def train(X, y, vocab, hiddensize, epochs=100):
         outputs = model(Xt.unsqueeze(0))
         loss = criterion(outputs.squeeze(0), yt)
         loss.backward()
+        total_loss += loss
         optimizer.step()
 
         print("In epoch {}, the loss was {}.".format(epoch, loss))
 
-    perpl = torch.exp(loss)
-    model.perplexity = perpl
+
+    model.loss = total_loss
 
     return model
 
