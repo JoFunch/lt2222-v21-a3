@@ -15,7 +15,9 @@ class VowelModel(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1)
 
         self.vocab = vocab
-        self.loss = 0
+
+
+        self.perplexity = 1
 
     def forward(self, x):
         x = self.lin1(x)
@@ -61,6 +63,9 @@ def train(X, y, vocab, hiddensize, epochs=100):
         optimizer.step()
 
         print("In epoch {}, the loss was {}.".format(epoch, loss))
+
+    perpl = torch.exp(loss)
+    model.perplexity = perpl
 
     return model
 

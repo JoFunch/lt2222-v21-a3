@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
 
 	if args.perplexity:
-		perp = perplexity(model.loss)
+		perp = perplexity(model.perplexity)
 		# print(perp)
 
 
