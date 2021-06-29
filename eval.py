@@ -90,11 +90,13 @@ if __name__ == "__main__":
 	model = torch.load(args.pickle)
 	model.eval()
 
+
 	#preproccessing funct A
 	preprocessed_input = a(args.input_data)
 
 	#create data, funct B
 	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
+	print(len(model.vocab), 'vocab len')
 
 	#test model / predict
 	pred = predict(model, index_vowels)
