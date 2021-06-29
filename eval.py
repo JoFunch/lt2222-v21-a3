@@ -79,11 +79,19 @@ def overwrite(processed_files, pred_vowels):
 	return lst
 
 
+
+def perplexity(l):
+	perplexity  = torch.exp(l)
+	print(l)
+
+
+
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("input_data", type=str)
 	parser.add_argument("pickle", type=str)
-	parser.add_argument("overwriting_file", type=str)   
+	parser.add_argument("overwriting_file", type=str) 
+	parser.add_argument("--perplexity", type=str)   
 
 	args = parser.parse_args()
 
@@ -107,6 +115,11 @@ if __name__ == "__main__":
 	#use model to write!
 	with open(args.overwriting_file, 'w') as f:
 		f.write(''.join(overwrite(preprocessed_input[0], pred))) 
+
+
+	if args.perplexity:
+		perp = perplexity(model.loss)
+		print(perp)
 
 
 
