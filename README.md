@@ -61,28 +61,28 @@ Analysis:
 
 5 variations of k-option
 
-k1
+k1 10
 
-k2
+k2 50
 
-k3
+k3 100
 
-k4
+k4 300
 
-k5
+k5 400
 
 
 5 variations of r-option
 
-r1
+r1 10
 
-r2
+r2 50
 
-r3
+r3 200
 
-r4
+r4 300
 
-r5
+r5 400
 
 
 
