@@ -43,7 +43,7 @@ def b(u, p):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--k", dest="k", type=int, default=10)
+    parser.add_argument("--k", dest="k", type=int, default=100)
     parser.add_argument("--r", dest="r", type=int, default=100)
     parser.add_argument("m", type=str)
     parser.add_argument("h", type=str)
