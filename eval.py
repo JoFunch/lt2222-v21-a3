@@ -58,6 +58,7 @@ def evaluate_accuracy(true_vector, predicted_vector):
 	true_positives = sum(predicted_vector == true_vector)
 	total = len(predicted_vector)
 	accuracy = true_positives / total
+	print(accuracy)
 	print('Current Model Accuracy: ', accuracy*100, '%')
 
 
