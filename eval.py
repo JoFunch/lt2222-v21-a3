@@ -66,14 +66,14 @@ def overwrite(processed_files, pred_vowels):
 	print('processed_files: ', processed_files)
 	print('pred_vowels: ', pred_vowels)
 	idx = 0
-	for t in processed_files:
+	for t in range(processed_files - 9):
 		# print(t, 'Token')
-		if t in vowels:
+		if processed_files[t] in vowels:
 			# print(vowels[pred_vowels[idx]])
 			lst.append(vowels[pred_vowels[idx]])
 			idx += 1
 		else:
-			lst.append(t)
+			lst.append(processed_files[t])
 			idx += 1
 
 	return lst
