@@ -81,8 +81,8 @@ def overwrite(processed_files, pred_vowels):
 
 
 def perplexity(l):
-	perplexity  = torch.exp(l)
-	print(l)
+	perpl  = torch.exp(l)
+	print(perpl)
 
 
 
