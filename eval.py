@@ -63,7 +63,7 @@ def overwrite(processed_files, pred_vowels):
 
 	lst = []
 	print('processed_files: ', processed_files)
-	print('pred_vowels', : pred_vowels)
+	print('pred_vowels: ', pred_vowels)
 	idx = 0
 	for t in processed_files:
 		print(t, 'Token')
