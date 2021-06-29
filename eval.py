@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
 	#use model to write!
 	with open(args.overwriting_file, 'w') as f:
-		f.write(''.join(overwrite(index_vowels, pred))) 
+		f.write(''.join(overwrite(preprocessed_input[0], pred))) 
 
 
 
