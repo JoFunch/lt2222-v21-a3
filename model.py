@@ -15,6 +15,7 @@ class VowelModel(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1)
 
         self.vocab = vocab
+        self.loss = 0
 
     def forward(self, x):
         x = self.lin1(x)
