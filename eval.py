@@ -62,7 +62,7 @@ def evaluate_accuracy(true_vector, predicted_vector):
 def overwrite(processed_files, pred_vowels):
 
 	lst = []
-	print('processed_files: ' processed_files)
+	print('processed_files: ', processed_files)
 	print('pred_vowels', : pred_vowels)
 	idx = 0
 	for t in processed_files:
