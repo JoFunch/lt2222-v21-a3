@@ -39,11 +39,59 @@ Args:
 
 
 ## Part 2
+	Eval.py is a script taking three arguments (1 optional), input-data, model-pickle, and destination/writing file.
+
+	internally, Eval.py consists of a few functions:
+
+		predict() takes the predictions made by train.py, turns it to a NP-array, iterates all the predicts of each vowel-case and returns the largest prediction via. argmax. 
+
+		eval_accuracy takes pre-processed test-data as True Positives and cross-references the predictions in a simple mathematical equation saying (correct predictions)/all possible predictions
+
+		overwriting is not so much an overwriting function as it actualy just produces a new list with the updated preditions.
+		It iterates the preprocessed test data and when encountering a vowel it replaces it with the predicted one instead. 
+				Had a few trouble getting the correct length to match. There are few discrepancies between test and predicted vowels throug some 
+				anomalies and range-issues--- IF POSSIBLE, could you perhaps illustrate how to fix this? 
 
 
- python3 train.py /home/xsayas@GU.GU.SE/scratch/lt2222-v21-resources/svtrain.lower.txt
+Accuracy of the Default:
+	0.2194869126207073 %
 
 ## Part 3
+Analysis:
+
+5 variations of k-option
+
+k1
+
+k2
+
+k3
+
+k4
+
+k5
+
+
+5 variations of r-option
+
+r1
+
+r2
+
+r3
+
+r4
+
+r5
+
+
+
+
+
+
+
+
+
 
 ## Bonuses
 

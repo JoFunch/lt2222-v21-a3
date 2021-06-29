@@ -63,8 +63,8 @@ def overwrite(processed_files, pred_vowels):
 
 	lst = []
 	diff = len(processed_files)-len(pred_vowels)
-	print('processed_files: ', processed_files)
-	print('pred_vowels: ', pred_vowels)
+	# print('processed_files: ', processed_files)
+	# print('pred_vowels: ', pred_vowels)
 	idx = 0
 	for t in range(len(processed_files)-diff):
 		# print(t, 'Token')
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 	parser.add_argument("input_data", type=str)
 	parser.add_argument("pickle", type=str)
 	parser.add_argument("overwriting_file", type=str) 
-	parser.add_argument("--perplexity", action='store_true')   
+	# parser.add_argument("--perplexity", action='store_true')   
 
 	args = parser.parse_args()
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 	#create data, funct B
 	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
-	print(len(model.vocab), 'vocab len')
+	# print(len(model.vocab), 'vocab len')
 
 	#test model / predict
 	pred = predict(model, index_vowels)
@@ -117,9 +117,9 @@ if __name__ == "__main__":
 		f.write(''.join(overwrite(preprocessed_input[0], pred))) 
 
 
-	if args.perplexity:
-		perp = perplexity(model.loss)
-		# print(perp)
+	# if args.perplexity:
+	# 	perp = perplexity(model.loss)
+	# 	# print(perp)
 
 
 
