@@ -91,7 +91,7 @@ if __name__ == "__main__":
 	parser.add_argument("input_data", type=str)
 	parser.add_argument("pickle", type=str)
 	parser.add_argument("overwriting_file", type=str) 
-	parser.add_argument("--perplexity", type=str)   
+	parser.add_argument("--perplexity", action='store_true')   
 
 	args = parser.parse_args()
 
