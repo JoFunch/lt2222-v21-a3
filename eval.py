@@ -62,13 +62,14 @@ def evaluate_accuracy(true_vector, predicted_vector):
 def overwrite(processed_files, pred_vowels):
 
 	lst = []
+	print(len(processed_files, len(pred_vowels)))
 	print('processed_files: ', processed_files)
 	print('pred_vowels: ', pred_vowels)
 	idx = 0
 	for t in processed_files:
 		# print(t, 'Token')
 		if t in vowels:
-			print(vowels[pred_vowels[idx]])
+			# print(vowels[pred_vowels[idx]])
 			lst.append(vowels[pred_vowels[idx]])
 			idx += 1
 		else:
