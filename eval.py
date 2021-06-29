@@ -59,20 +59,20 @@ def evaluate_accuracy(true_vector, predicted_vector):
 	print('Current Model Accuracy: ', accuracy*100, '%')
 
 
-def overwrite(processed_files, write_file, pred_vowels):
+def overwrite(processed_files, pred_vowels):
 
 	lst = []
 
-    idx  = 0
-    for t in processed_files:
-    	if t in vowels:
-    		lst.append(vowels[pred_vowels[idx]])
-    		idx += 1
-    	else:
-    		lst.append(t)
-    		idx += 1
+	idx = 0
+	for t in processed_files:
+		if t in vowels:
+			lst.append(vowels[pred_vowels[idx]])
+			idx += 1
+		else:
+			lst.append(t)
+			idx += 1
 
-    return lst
+	return lst
 
 
 if __name__ == "__main__":
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
 	#use model to write!
 	with open(args.overwriting_file, 'w') as f:
-        f.write(''.join(overwrite(index_vowels, pred))) 
+		f.write(''.join(overwrite(index_vowels, pred))) 
 
 
 
