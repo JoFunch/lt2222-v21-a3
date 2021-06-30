@@ -1,6 +1,6 @@
 # LT2222 V21 Assignment 3
 
-Your name:
+Your name: Jonas Funch
 
 ## Part 1
 Function A: Simple pre-processing. 
@@ -35,7 +35,7 @@ Args:
 
 	m = input-text-file taken by A for preprocessing
 
-	h = position of torch.save (path to model)
+	h = position of torch.save (path to model / pickle)
 
 
 ## Part 2
@@ -54,44 +54,35 @@ Args:
 
 
 Accuracy of the Default:
-	0.2194869126207073 %
+	14.943725294951873 %
 
 ## Part 3
 Analysis:
 
 5 variations of k-option
 
-k1 10
+k1 10: 13.807670257385112 %
 
-k2 50
+k2 50: 15.100630638785795 %
 
-k3 100
+k3 100: 9.168401677680214 %
 
-k4 300
+default: 14.943725294951873 %
 
-k5 400
+k4 300: 17.59753779306599 %
 
 
 5 variations of r-option
 
-r1 10
+r1 10: 10.49002745843517 %
 
-r2 50
+r2 50: 13.163453124528528 %
 
-r3 200
+r3 200: 18.03807971998431 %
 
-r4 300
+r4 300: 5.530913370145741 %
 
-r5 400
-
-
-
-
-
-
-
-
-
+r5 400: 5.5429830119791195 %
 
 ## Bonuses
 

@@ -46,23 +46,21 @@ def predict(model, input_vector):
 
 	pred = model(torch.Tensor(input_vector)).detach().numpy()
 	# print(pred)
-	pred_vowels = np.argmax(np.abs(pred), axis=1)
+	pred_vowels = np.argmin(np.abs(pred), axis=1)
 	# print(pred_vowels)
 	return pred_vowels
 
 
 
 def evaluate_accuracy(true_vector, predicted_vector):
-	print(true_vector[:50], len(true_vector))
-	print(predicted_vector[:50], len(predicted_vector))
-	# true_positives = sum(true_vector == predicted_vector)
-	point = 0
-	for i in range(len(true_vector)):
-		if true_vector[i] == predicted_vector[i]:
-			point += 1
+	true_positives = sum(true_vector == predicted_vector)
+	# point = 0
+	# for i in range(len(true_vector)):
+	# 	if true_vector[i] == predicted_vector[i]:
+	# 		point += 1
 
 	total = len(true_vector)
-	accuracy = (point / total)
+	accuracy = (true_positives / total)
 	print(accuracy)
 	print('Current Model Accuracy: ', accuracy*100, '%')
 
@@ -71,13 +69,9 @@ def overwrite(processed_files, pred_vowels):
 
 	lst = []
 	diff = len(processed_files)-len(pred_vowels)
-	# print('processed_files: ', processed_files)
-	# print('pred_vowels: ', pred_vowels)
 	idx = 0
 	for t in range(len(processed_files)-diff):
-		# print(t, 'Token')
 		if processed_files[t] in vowels:
-			# print(vowels[pred_vowels[idx]])
 			lst.append(vowels[pred_vowels[idx]])
 			idx += 1
 		else:
@@ -108,11 +102,10 @@ if __name__ == "__main__":
 
 
 	#preproccessing funct A
-	preprocessed_input = a(args.input_data)
+	preprocessed_input = a(args.input_data) #Test-data!
 
 	#create data, funct B
-	index_vowels, one_vector = b(preprocessed_input[0], model.vocab)
-	# print(len(model.vocab), 'vocab len')
+	index_vowels, one_vector = b(preprocessed_input[0], model.vocab) #index-vector from test and vocab from TRAIN! 
 
 	#test model / predict
 	pred = predict(model, index_vowels)
