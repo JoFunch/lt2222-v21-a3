@@ -53,8 +53,7 @@ Args:
 				anomalies and range-issues--- IF POSSIBLE, could you perhaps illustrate how to fix this? 
 
 
-Accuracy of the Default:
-	14.943725294951873 %
+
 
 ## Part 3
 Analysis:
