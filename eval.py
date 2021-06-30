@@ -45,20 +45,15 @@ def b(input_data, vocab):
 def predict(model, input_vector):
 
 	pred = model(torch.Tensor(input_vector)).detach().numpy()
-	# print(pred)
+
 	pred_vowels = np.argmin(np.abs(pred), axis=1)
-	# print(pred_vowels)
+
 	return pred_vowels
 
 
 
 def evaluate_accuracy(true_vector, predicted_vector):
 	true_positives = sum(true_vector == predicted_vector)
-	# point = 0
-	# for i in range(len(true_vector)):
-	# 	if true_vector[i] == predicted_vector[i]:
-	# 		point += 1
-
 	total = len(true_vector)
 	accuracy = (true_positives / total)
 	print(accuracy)

@@ -61,29 +61,50 @@ Analysis:
 
 5 variations of k-option
 
-k1 10: 13.807670257385112 %
+k1 10: 13.33997163634169 %
 
-k2 50: 15.100630638785795 %
+k2 50: 9.65118735101536 %
 
-k3 100: 9.168401677680214 %
+k3 100: 15.517033282037357 %
 
-default: 14.943725294951873 %
+default: 15.704112730454725 %
 
-k4 300: 17.59753779306599 %
+k4 300: 17.040825563501404 %
 
 
 5 variations of r-option
 
-r1 10: 10.49002745843517 %
+r1 10: 12.182794725566518 %
 
-r2 50: 13.163453124528528 %
+r2 50: 13.902718686822968 %
 
-r3 200: 18.03807971998431 %
+r3 200: 16.03150176518512 %
 
-r4 300: 5.530913370145741 %
+r4 300: 7.279502730756465 %
 
-r5 400: 5.5429830119791195 %
+r5 400: 7.994629009384147 %
+
+Notes:
+	Curiously, none of the models performance is of any excellence. The best model is K4 with 300 nodes and default number of epochs. 
+
+	I have not done anything to optimize the pre-processing which will undoubtedly improve the performance. Here, more information about vowel-environment could be included, and low-frequency-vowels could be filtered, as low-frequency items tends to be more difficult to map/predict as less instances are known.
+
+	Evidently, the model performs better with a lower/medium number of epochs and a higher number of nodes.
+
+
+	Note: the performance of the model, when called through the terminal provides one accuracy / prediction, but when called in the notebook in the directory, the performance is slightly better. I cannot see how/why this is, as I have stared myself blind on the various vector-lists and vocabularies.
+
+	Perhaps you can briefly comment on where i connect things incorrectly.
+
+
+
+	The eval.py also takes a file-name for overwriting, although this has not been included for every instance. It is possible, though. 
 
 ## Bonuses
+
+	attempts made to concatenate and calculate perplexity.
+
+	modeldropout.py contains a changed version, where dropout has been added as param to model.py.
+	the dropout has been set to a change-able var designable upon call/assignment.
 
 ## Other notes
